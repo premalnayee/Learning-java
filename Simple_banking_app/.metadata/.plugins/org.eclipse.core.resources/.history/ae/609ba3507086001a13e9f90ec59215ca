@@ -1,0 +1,11 @@
+
+public class test {
+	
+	String firstname;
+	
+	static void  main(String[] args) {
+		test a = new test("abc");
+		
+	}
+
+}

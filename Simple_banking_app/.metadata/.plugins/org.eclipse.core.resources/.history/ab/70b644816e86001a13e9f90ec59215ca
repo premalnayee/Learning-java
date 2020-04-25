@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class TestHash {
+	
+  public void main(String[] args) {
+		// Make accounts by taking in information from terminal and input them into a HashMap (a.k.a relational database) for easier access. Consider how you could autogenerate the CustomerID with a counter or random number generator. Also need to find better way to store balance (currently stored as String which isn't ideal).
+		
+		class Account {
+			String FirstName;
+			String LastName;
+			String balance;
+			
+			Account(String FirstName, String LastName, String balance) {
+				this.FirstName = FirstName;
+				this.LastName  = LastName;
+				this.balance   = balance;
+			}
+			
+			Account newer = new Account("a","b","0");
+			
+			//System.out.println(newer.FirstName);
+			
+		}
+		
+  }
+}

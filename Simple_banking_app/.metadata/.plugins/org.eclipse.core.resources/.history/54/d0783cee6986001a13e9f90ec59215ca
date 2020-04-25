@@ -1,0 +1,132 @@
+// Aim of project: banking application you will be coding the simple bank operations like check balance, deposit, withdraw, exit, etc. 
+
+import java.util.*;
+
+public class BankUser {
+	String option;
+	Scanner in;
+	String FirstName;
+	String LastName;
+	String balance;
+	String CustomerID;
+	HashMap<String, String[]> Customers = new HashMap<>();
+	
+
+	public void BankUser(BankUser start) {
+		// 
+		
+		// Infinite loop
+		while (true) {
+			System.out.println("What would you like to do?");
+			System.out.println("1. Create account");
+			System.out.println("2. Check balanace");
+			System.out.println("3. Deposit");
+			System.out.println("4. Withdraw");
+			System.out.println("5. Exit");
+			System.out.println("Please type in an number to select option");
+			in = new Scanner(System.in);
+			
+			option = in.nextLine();
+			
+			switch(option) {
+				case "1":
+					start.CreateAccount();
+					break;
+				case "2": 
+					start.CheckBalance();
+					break;
+				case "3":
+					start.Deposit();
+					break;
+				case "4":
+					start.Withdraw();
+					break;
+				case "5":
+					System.out.println("Goodbye");
+					System.exit(0);}
+		}
+	}
+	
+	public void CreateAccount() {
+		// Make accounts by taking in information from terminal and input them into a HashMap (a.k.a relational database) for easier access. Consider how you could autogenerate the CustomerID with a counter or random number generator. Also need to find better way to store balance (currently stored as String which isn't ideal).
+		
+		System.out.println("What is your first name?");
+		FirstName = in.nextLine();
+		
+		System.out.println("What is your last name?");
+		LastName = in.nextLine();
+		
+		System.out.println("How much money would you like to put in?");
+		balance = in.nextLine(); 
+		
+		System.out.println("What do you want your unique id to be?");
+		CustomerID = in.nextLine();
+		
+		String[] Customer_parameters = {FirstName,LastName,balance};
+		
+		Customers.put(CustomerID, Customer_parameters);
+		System.out.println("Hi " + Customers.get(CustomerID)[0] + " your account has been created." + "\n");
+		
+	}
+	
+	public void CheckBalance() {
+		// Hopefully fairly simple, just lookup the customer ID against the HashMap and recall some values
+		
+		System.out.println("What's your customer ID?");
+		CustomerID = in.nextLine();
+		
+		System.out.println("Hi " + Customers.get(CustomerID)[0] + " your balanace is: " + Customers.get(CustomerID)[2] + "\n");
+	}
+	
+	public void Deposit() {
+		// Deposit money into the bank
+		
+		System.out.println("What's your customer ID?");
+		CustomerID = in.nextLine();
+		
+		balance = Customers.get(CustomerID)[2];
+		float balance_float = Float.valueOf(balance);
+		
+		System.out.println("How much money do you want to deposit?");
+		float deposited = Float.valueOf(in.nextLine());
+		
+		//Update the balance
+		balance_float += deposited;
+		balance = String.valueOf(balance_float);
+		Customers.get(CustomerID)[2] = balance;
+				
+		System.out.println("You deposited " + deposited + " your current balanace is " + balance_float + "\n");
+
+	}
+	
+	public void Withdraw() {
+		// Withdraw money out of the bank
+		
+		System.out.println("What's your customer ID?");
+		CustomerID = in.nextLine();
+		
+		balance = Customers.get(CustomerID)[2];
+		float balance_float = Float.valueOf(balance);
+		
+		System.out.println("How much money do you want to withdraw?");
+		float withdrawn = Float.valueOf(in.nextLine());
+		
+		//Update the balance
+		balance_float -= withdrawn;
+		balance = String.valueOf(balance_float);
+		Customers.get(CustomerID)[2] = balance;
+				
+		System.out.println("You withdrew " + withdrawn + " your current balanace is " + balance_float + "\n");
+
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println("Hi");
+		
+		BankUser start = new BankUser();
+		start.BankUser(start);
+		
+	}
+
+}
