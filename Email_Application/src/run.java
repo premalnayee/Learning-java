@@ -4,7 +4,8 @@ public class run {
 
 
 
-    static void main(String args[]) {
-
+    public static void main(String[] args) {
+        Email instance = new Email();
+        instance.UI();
     }
 }

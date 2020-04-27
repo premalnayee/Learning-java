@@ -1,9 +1,23 @@
+import java.util.HashMap;
+
 public class BasicTest {
 
     public static void main(String[] args){
-        Account cus = new Account("a","af","sales","aga",150,"2fds");
+        //Email cus = new Email();
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //System.out.println("HI");
+        capitalCities.put("England", "London");
+        capitalCities.put("Germany", "Berlin");
+        System.out.println(capitalCities);
 
-        cus.displayEmail();
-        System.out.println("HI");
+        Account instance = new Account();
+
+        instance.setFirstname("james");
+        System.out.println(instance);
+
+        //Account instance = new Account();
+
+        System.out.println(instance);
+
     }
 }

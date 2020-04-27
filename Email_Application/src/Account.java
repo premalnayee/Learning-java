@@ -1,25 +1,13 @@
-import java.util.Scanner;
-import java.util.HashMap;
-
 public class Account {
     private String firstname;
     private String lastname;
     private String email;
     private String department;
     private String pasword;
-    private int mailbox_capacity;
+    private int mailbox_capacity = 1000;  // Default mailbox capacity
     private String alternate_email;
 
-    Account(String firstname, String lastname, String department,String password, int mailbox_capacity, String alternate_email){
-
-        this.setFirstname(firstname);
-        this.setLastname(lastname);
-        this.setDepartment(department);
-        this.setPasword(password);
-        this.setMailbox_capacity(mailbox_capacity);
-        this.setAlternate_email(alternate_email);
-
-        email = firstname + "." + lastname + "@" + department + ".tesla.com";
+    Account(){
     }
 
     public void displayName(){
@@ -27,13 +15,12 @@ public class Account {
     }
 
     public void displayEmail(){
-        System.out.println(email);
+        System.out.println(getEmail());
     }
 
     public void displayMailbox_capacity(){
         System.out.println(mailbox_capacity);
     }
-
 
     public String getFirstname() {
         return firstname;
@@ -63,8 +50,20 @@ public class Account {
         return pasword;
     }
 
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
+    public void setPasword() {
+        this.pasword = randomPassword();
+    }
+
+    private String randomPassword(){
+        int length = 8;
+        String passwordSet = "ABCEDEFGHIJKLMNOPQRSTUVWXYZ012345678";
+
+        char[] password = new char[length];
+        for (int i=0; i <length; i++) {
+            int rand = (int) (Math.random() * passwordSet.length());
+            password[i] = passwordSet.charAt(rand);
+        }
+        return new String(password);
     }
 
     public int getMailbox_capacity() {
@@ -81,5 +80,13 @@ public class Account {
 
     public void setAlternate_email(String alternate_email) {
         this.alternate_email = alternate_email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail() {
+        this.email  = this.firstname + "." + this.lastname + "@" + department + ".tesla.com";
     }
 }
