@@ -3,7 +3,7 @@ public class Account {
     private String lastname;
     private String email;
     private String department;
-    private String pasword;
+    private String password;
     private int mailbox_capacity = 1000;  // Default mailbox capacity
     private String alternate_email;
 
@@ -46,15 +46,15 @@ public class Account {
         this.department = department;
     }
 
-    public String getPasword() {
-        return pasword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasword() {
-        this.pasword = randomPassword();
+    public void setPassword(String NewPassword) {
+        this.password = NewPassword;
     }
 
-    private String randomPassword(){
+    public void randomPassword(){
         int length = 8;
         String passwordSet = "ABCEDEFGHIJKLMNOPQRSTUVWXYZ012345678";
 
@@ -63,7 +63,7 @@ public class Account {
             int rand = (int) (Math.random() * passwordSet.length());
             password[i] = passwordSet.charAt(rand);
         }
-        return new String(password);
+        this.password = new String(password);
     }
 
     public int getMailbox_capacity() {
@@ -86,7 +86,11 @@ public class Account {
         return email;
     }
 
-    public void setEmail() {
+    public void setEmail(String NewEmail) {
+        this.email = NewEmail;
+    }
+
+    public void generateEmail() {
         this.email  = this.firstname + "." + this.lastname + "@" + department + ".tesla.com";
     }
 }
