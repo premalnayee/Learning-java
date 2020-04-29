@@ -13,11 +13,14 @@ public class BasicTest {
         Account instance = new Account();
 
         instance.setFirstname("james");
-        System.out.println(instance);
+
+        //System.out.println(capitalCities.values());
+
+        for (String value : capitalCities.values()) {
+            System.out.println(value);
+        }
 
         //Account instance = new Account();
-
-        System.out.println(instance);
-
+        //System.out.println(instance);
     }
 }

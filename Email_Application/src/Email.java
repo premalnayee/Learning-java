@@ -32,12 +32,14 @@ public class Email {
                     break;
                 case 4:
                     running = false;
+                    System.out.println("Bye-Bye");
                     break;
                 default:
                     System.out.println("Error try again");
                     break;
 
             }
+            System.out.println("==".repeat(15) + "\n");
         }
     }
 
@@ -110,6 +112,7 @@ public class Email {
     }
 
     String getFromUserID () {
+        Scanner in = new Scanner(System.in);
         System.out.println("Enter the ID you would like to change?");
         String ID = in.nextLine();
         return ID;
@@ -153,7 +156,37 @@ public class Email {
 
         switch (in.nextInt()) {
             case 1:
-                System.out.println(email_database.values());
+                PrintNames();
+                break;
+            case 2:
+                PrintEmails();
+                break;
+            case 3:
+                PrintMailboxCapacities();
+                break;
+            case 4:
+                break;
+            default:
+                System.out.println("Error try again");
+                break;
+        }
+    }
+
+    void PrintNames(){
+        for (Account value : email_database.values()) {
+            System.out.println(value.getFirstname() + value.getLastname());
+        }
+    }
+
+    void PrintEmails(){
+        for (Account value : email_database.values()) {
+            System.out.println(value.getEmail());
+        }
+    }
+
+    void PrintMailboxCapacities(){
+        for (Account value : email_database.values()) {
+            System.out.println(value.getMailbox_capacity());
         }
     }
 }
