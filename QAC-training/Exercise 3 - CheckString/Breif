@@ -1,0 +1,5 @@
+Create:
+    • Create new a new Maven Project: CheckString
+Code a project that:
+    • Has a method that when given a String, checks that it matches a hard-coded String.
+    • Has a method that when given 2 Strings, compares the Strings and checks if they are equal.
