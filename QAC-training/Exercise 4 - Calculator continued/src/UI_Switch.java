@@ -1,25 +1,43 @@
 import java.util.Scanner;
 import static java.lang.System.out;
 
-public class Runner {
+public class UI_Switch {
 
     int num1;
     int num2;
     String symbol;
+    Scanner in = new Scanner(System.in);
 
-    public Runner() {
+    public UI_Switch() {
     }
 
     public void UI() {
-        out.println("Enter calculation:");
 
-        Scanner in = new Scanner(System.in);
 
-        this.num1 = Integer.parseInt(in.next());
-        this.symbol = in.next();
-        this.num2 = Integer.parseInt(in.next());
 
-        in.close();
+//        this.num1 = Integer.parseInt(in.next());
+//        this.symbol = in.next();
+//        this.num2 = Integer.parseInt(in.next());
+
+        boolean try_again = true;
+        do {
+
+            out.println("Enter calculation:");
+
+            try {
+                this.num1 = Integer.parseInt(in.next());
+                this.symbol = in.next();
+                this.num2 = Integer.parseInt(in.next());
+
+                try_again= false;
+            } catch (Exception e) {
+                out.println("Error try again");
+            }
+
+        } while (try_again);
+
+
+        //in.close();
 
         Switch(num1, num2, symbol);
     }
@@ -56,10 +74,10 @@ public class Runner {
 
         boolean running = true;
 
-        Runner runner_obj = new Runner();
+        UI_Switch UI_obj = new UI_Switch();
 
         while (running) {
-            runner_obj.UI();
+            UI_obj.UI();
         }
 
 
