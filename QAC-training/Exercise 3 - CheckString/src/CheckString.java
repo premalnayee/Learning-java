@@ -21,5 +21,7 @@ public class CheckString {
     public static void main(String[] args) {
         CheckString Potatoes = new CheckString("Potatoes",null        );
         System.out.println(Potatoes.check_internal());
+
+        System.out.println("hello" == "Hello");
     }
 }

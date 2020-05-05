@@ -1,0 +1,10 @@
+
+    1  Refer to Appendix B, recreate this flowchart as a project.
+
+    2  Refer to Appendix C, recreate this flowchart as a project.
+
+    3  Create a method that can print out the numbers 1-10 10 times each.
+
+    4  If you have used a while loop at any point in this exercise, replace them with a for loop– remember that you should use a for loop when you know when the iteration should end.
+
+    5  Create a method to print the numbers 1 to 10 as many times as the value of that number.  For example, you will print ‘1’ one time, and ‘10’ ten times.
