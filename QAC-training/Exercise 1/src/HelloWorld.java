@@ -10,5 +10,11 @@ public class HelloWorld {
 
     public static void main(String[] args){
         System.out.println("Hello world");
+
+        HelloWorld object = new HelloWorld();
+
+        System.out.println(object.HelloWorld());
+
+        object.Heya("Banana");
     }
 }
