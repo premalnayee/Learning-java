@@ -1,0 +1,13 @@
+Create a Person class that models the following:
+
+Name
+Age
+Job Title
+
+Create some example objects with this class.
+
+Create a List Implementation and store those objects inside.
+
+Use a loop to output all of your people to the console.
+
+Create a method that can search for a specific Person by their name.
