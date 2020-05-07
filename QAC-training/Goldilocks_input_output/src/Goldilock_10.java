@@ -25,11 +25,17 @@ public class Goldilock_10 {
         return whichChairsAreHotRightNow(obj.getWeightList(), obj.getTemperatureList());
     }
 
+    public void printFindTheChairsFromFile(String filePath) {
+        System.out.println(findTheChairsFromFile(filePath));
+    }
+
     public static void main(String[] args) {
 
         Goldilock_10 obj1 = new Goldilock_10();
-        ArrayList<Integer> HotChairsList = obj1.findTheChairsFromFile("files/Input.txt");
-        System.out.println(HotChairsList);
+
+        //obj1.printFindTheChairsFromFile("files/Input.txt");
+
+        //obj1.printFindTheChairsFromFile("files/Input2");
 
     }
 }
