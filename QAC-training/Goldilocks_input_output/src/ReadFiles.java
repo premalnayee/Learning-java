@@ -18,7 +18,7 @@ public class ReadFiles {
     public void ReadFile() {
                 try {
                     File myObj = new File(filePath);
-                    myObj.createNewFile();
+                    //myObj.createNewFile();
 
                     Scanner myReader = new Scanner(myObj);
                     while (myReader.hasNextLine()) {
@@ -30,8 +30,6 @@ public class ReadFiles {
                     myReader.close();
                 } catch (FileNotFoundException e) {
                     System.out.println("An error occurred.");
-                    e.printStackTrace();
-                } catch (IOException e) {
                     e.printStackTrace();
                 }
         }

@@ -13,7 +13,7 @@ public class Goldilock_10 {
 
         for (int i = 0; i <weightList.size(); i++ ) {
             if (isGoldieCoolWithIt(weightList.get(i), temperatureList.get(i))) {
-                HotChairs.add(i++);
+                HotChairs.add(++i);
             }
         }
         return HotChairs;
@@ -28,7 +28,8 @@ public class Goldilock_10 {
     public static void main(String[] args) {
 
         Goldilock_10 obj1 = new Goldilock_10();
-        obj1.findTheChairsFromFile("files/Input.txt");
+        ArrayList<Integer> HotChairsList = obj1.findTheChairsFromFile("files/Input.txt");
+        System.out.println(HotChairsList);
 
     }
 }
