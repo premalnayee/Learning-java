@@ -1,5 +1,7 @@
 public class Vehicle {
 
+    private int ID;
+    private static int count;
     private String Make;
     private String Model;
     private String Type;
@@ -9,8 +11,12 @@ public class Vehicle {
     private String color;
     private float Price;
 
-    public Vehicle() {
+    private void counter(){
+        ID = count++;
+    }
 
+    public Vehicle() {
+        counter();
     }
 
     public Vehicle(String make, String model, String type, short wheels, short weight, short HP, String color, float price) {
@@ -22,14 +28,32 @@ public class Vehicle {
         this.HP = HP;
         this.color = color;
         Price = price;
+        counter();
     }
 
     public Vehicle(String type, short wheels) {
         Type = type;
         Wheels = wheels;
+        counter();
     }
 
     // Getters and setters
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Vehicle.count = count;
+    }
+
     public String getMake() {
         return Make;
     }

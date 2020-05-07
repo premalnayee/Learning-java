@@ -49,6 +49,16 @@ public class VehicleManager {
         return output;
     }
 
+    public void removeByType(Class<?> type) {
+        ArrayList<Vehicle> toRemove = new ArrayList<>();
+        for (Vehicle V : vehicleArrayList){
+            if (V.getClass() == type){
+                toRemove.add(V);
+            }
+        }
+        vehicleArrayList.removeAll(toRemove);
+    }
+
     public static void main(String[] args) {
 
     }
