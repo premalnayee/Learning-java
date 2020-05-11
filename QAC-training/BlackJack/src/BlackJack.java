@@ -1,5 +1,3 @@
-import static java.lang.System.*;
-
 public class BlackJack {
 
     int play(int num1, int num2){
