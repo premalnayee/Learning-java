@@ -28,7 +28,7 @@ public class BlackJack {
     }
 
     void printPlay(int num1, int num2) {
-        out.println(play(num1, num2));
+        System.out.println(play(num1, num2));
     }
 
     boolean over_21(int num){
