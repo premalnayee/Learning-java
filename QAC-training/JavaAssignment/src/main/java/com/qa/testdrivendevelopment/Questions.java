@@ -145,7 +145,22 @@ public class Questions {
 	 * email("Dave@amazon.com", "person") → "dave"
 	 */
 	public String email(String email, String parameter) {
-		return "";
+		String[] emailSplit = email.split("@|\\.");
+		
+		String person = emailSplit[0];
+		String company = emailSplit[1];
+		//String address = emailSplit[2];
+		
+		switch (parameter) {
+		case "person":
+			return person.toLowerCase();
+
+		case "company":
+			return company.toLowerCase();
+
+		default:
+			return "Error 404";
+		}
 	}
 
 	/**
@@ -164,7 +179,10 @@ public class Questions {
 	 * fibbonaci(8) → 21
 	 */
 	public int fibonacci(int num) {
-		return -1;
+		if (num == 0) { return 0; }
+		if (num == 1) { return 1; }
+		
+		return fibonacci(num - 1) + fibonacci(num - 2);
 	}
 
 
@@ -177,7 +195,11 @@ public class Questions {
 	 * oddLetters("0H1e2l3l4o5w6o7r8l9d") → "Helloworld"
 	 */
 	public String oddLetters(String input) {
-		return "";
+		StringBuilder oddLetterStr = new StringBuilder();
+		for (int i=1; i<input.length(); i+=2) { // Iterating from 1 to length of string (odd numbers are spaced two apart)
+			oddLetterStr.append(input.charAt(i));
+		}
+		return oddLetterStr.toString();
 	}
 
 
@@ -194,7 +216,19 @@ public class Questions {
 	 * chickenAndRabbits(12,63) → null
 	 */
 	public Integer chickenAndRabbits(int heads, int legs) {
-		return null;
+		float numChickens;
+		
+		try {
+			numChickens = (int) (2*heads - 0.5*legs);
+		} catch (ArithmeticException e) {
+			return null;
+		}
+		
+		if (numChickens >= 0 ) {
+			return (int) numChickens;
+		} else {
+			return null;
+		}
 	}
 
 
@@ -217,7 +251,21 @@ public class Questions {
 	 * validCard("4444-0123-4567-8901") → False
 	 * validCard("4012345678901234") → True
 	 */
+	
+	private static boolean validCardCheckFirst(String cardNumber) {
+		int firstCardNum = Integer.parseInt( String.valueOf(cardNumber.charAt(0)) ); // All this does is convert a char to an int, but hey that's Java for you
+
+		if (firstCardNum == 4| firstCardNum == 5| firstCardNum == 6) {
+			return true;
+		} else { 
+			return false; }
+	}
+	
+	
+	
 	public boolean validCard(String cardNumber) {
-		return false;
+
+		
+		return validCardCheckFirst(cardNumber);
 	}
 }
