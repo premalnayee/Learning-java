@@ -42,7 +42,7 @@ public class UI_Switch {
         Switch(num1, num2, symbol);
     }
 
-    private static void Switch(int num1, int num2, String symbol){
+    public static int Switch(int num1, int num2, String symbol){
 
         Calculator Calculator_obj = new Calculator();
 
@@ -67,6 +67,7 @@ public class UI_Switch {
                 break;
         }
         out.println("Answer: " + output);
+        return output;
     }
 
 
