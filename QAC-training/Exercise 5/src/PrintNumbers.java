@@ -37,7 +37,7 @@ public class PrintNumbers {
         return digits_arr.toArray(new Integer[]{});
     }
 
-    static String PrintWordArrange(int num) {
+    static String PrintWordArrange(int small_num) {
 
         String[] numNames1 ={
                 "",
@@ -74,37 +74,30 @@ public class PrintNumbers {
                 " ninety"
         };
 
-        String PrintWordArrange_1_100(int small_num) {
 
             if (0 < small_num && small_num < 20) {
                 return numNames1[small_num];
 
-            } else if (20 <= small_num && small_num < 100) {
+            } 
+            else if (20 <= small_num && small_num < 100) {
                 Integer[] digits_sep = getDigits(small_num);
                 return numTens[digits_sep[0]] + numNames1[digits_sep[1]];
-            }
-        }
-
-
-
-        if ( 100 <= num && num < 1000) {
-            Integer[] digits_sep = getDigits(num);
-
-            if (num % 100 == 0) {
-                return numNames1[ digits_sep[0] ] + " hundread";
-
-            } else {
-                String last_2_digits_str = digits_sep[1].toString() + digits_sep[2].toString();
-                int last_2_digits;
-                last_2_digits = java.lang.Integer.parseInt(last_2_digits_str);
-                return  numNames1[ digits_sep[0] ] + " and " + PrintWordArrange_1_100(last_2_digits);
-
-            }
-
-
-        }    else
-         {
-            return "error";
+            } 
+            else if ( 100 <= small_num && small_num < 1000) {
+	            Integer[] digits_sep = getDigits(small_num);
+	
+	            if (small_num % 100 == 0) {
+	                return numNames1[ digits_sep[0] ] + " hundread";
+	
+	            } else {
+	                String last_2_digits_str = digits_sep[1].toString() + digits_sep[2].toString();
+	                int last_2_digits;
+	                last_2_digits = java.lang.Integer.parseInt(last_2_digits_str);
+	                return  numNames1[ digits_sep[0] ] + " and " ; // not yet complete
+	            }
+	
+	        } else {
+            return "error 404 that number is unsupported";
         }
 
     }
